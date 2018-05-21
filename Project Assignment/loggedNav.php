@@ -27,21 +27,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.php">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contactUs.php">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.php">Register</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactUs.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addBass.php">Add Bass</a>
+                    </li>
+                    <li class="nav-item">
+                        <p class="nav-link"><?php echo"Logged in as: $_SESSION[user]";?></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>   
+                    </li>
                 </ul>
                 <span class="navbar-text font-weight-bold">
                 You can't buy happiness, but you can buy a bass which is basically the same thing.
