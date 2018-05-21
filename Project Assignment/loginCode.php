@@ -1,4 +1,5 @@
-<form style="margin-top:50px;" method="post" action="login.php">
+<?php session_start(); ?>
+<form style="margin-top:50px;" method="post" action="loginCode.php">
     <div class="form-row justify-content-md-center">
         <div class="col-md-2 mb-3">
             <label for="validationDefault01">Username:</label>
@@ -18,6 +19,32 @@
         </div>
     </div>
 </form>
+<?php 
+    if(isset($_POST['submit'])){
+        $Username = $_POST['username'];
+        $Password = $_POST['pass'];
+        if((!empty($Username)) && (!empty($Password))){
+            require_once("functions.php");
+            $connection = connectToMYSQLAcc();
+            $query = "SELECT count(*) FROM account_table WHERE username = '$Username' AND pass = $Password";
+            $result = mysqli_query($connection,$query) or die("Error in query: ".mysqli_error($connection));
+            $row = mysqli_fetch_row($result);
+            $count = $row[0];
+
+            if($count > 0){
+                if($Username == "Admin" && $Password == "123"){
+                    $_SESSION['admin'] = $Username;
+                    echo"<script>window.location.href='index.php'</script>";
+                }else{
+                    $_SESSION['user'] = $Username;
+                    echo"<script>window.location.href='index.php'</script>";
+                }
+            }else{
+                echo "Bad Login!";
+            }
+        }  
+    }
+?>
 <script>
     function forgot(){
         window.location.href="index.php";
